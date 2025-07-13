@@ -3,8 +3,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://jujubooom.github.io',
-  base: '/Api-Finder.wiki',
+  site: 'https://bx33661.github.io',
+  base: '/api-finder-docs',
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
