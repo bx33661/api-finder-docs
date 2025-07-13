@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://Fruit-Guardians.github.io',
+  site: 'https://jujubooom.github.io',
   base: '/Api-Finder.wiki',
   integrations: [mdx(), sitemap()],
   markdown: {
