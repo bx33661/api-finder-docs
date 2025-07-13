@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+---
+
+<Layout title="API Finder 文档">
+  <main>
+    <div class="hero">
+      <h1>🔍 API Finder</h1>
+      <p>一个用于从前端文件中发现API端点的扫描工具</p>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <h3>🚀 快速扫描</h3>
+        <p>快速从前端文件中发现API端点</p>
+      </div>
+      <div class="feature">
+        <h3>🌐 多代理支持</h3>
+        <p>支持HTTP和SOCKS5代理</p>
+      </div>
+      <div class="feature">
+        <h3>📱 多设备支持</h3>
+        <p>支持桌面、移动和微信User-Agent</p>
+      </div>
+    </div>
+
+    <div class="docs-nav">
+      <h2>📚 文档目录</h2>
+      <ul>
+        <li><a href="/Api-Finder.wiki/bug-handling">Bug处理专栏</a></li>
+        <li><a href="/Api-Finder.wiki/anti-crawler">反爬虫问题解决方案</a></li>
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .feature {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .feature h3 {
+    color: #495057;
+    margin-bottom: 1rem;
+  }
+  
+  .docs-nav {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .docs-nav h2 {
+    color: #343a40;
+    margin-bottom: 1rem;
+  }
+  
+  .docs-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .docs-nav li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .docs-nav a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .docs-nav a:hover {
+    background: #f8f9fa;
+    padding-left: 1rem;
+  }
+</style> 

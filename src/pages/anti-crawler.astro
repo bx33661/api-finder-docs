@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="反爬虫问题解决方案 - API Finder 文档">
+  <article class="doc-content">
+    <h1>反爬虫问题解决方案</h1>
+    
+    <section>
+      <h2>问题描述</h2>
+      <p>目前判断问题在于，被识别出来了。以下是典型的连接被拒绝的错误信息：</p>
+      
+      <pre><code>Starting API endpoint scan...
+Starting scan target: https://www.ray.so/
+Failed to get HTML: Connection aborted
+Cannot get external script</code></pre>
+    </section>
+
+    <section>
+      <h2>解决方案</h2>
+      <p>目前改进方案是加上了更加完全真实的请求头，配合上我们的自己的 <code>ua_manager.py</code>：</p>
+      
+      <div class="code-block">
+        <p>header = {</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"User-Agent": Uam.getUa(),</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Accept-Encoding": "gzip, deflate, br",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Connection": "keep-alive",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Upgrade-Insecure-Requests": "1",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Sec-Fetch-Dest": "document",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Sec-Fetch-Mode": "navigate",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Sec-Fetch-Site": "none",</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;"Cache-Control": "max-age=0"</p>
+        <p>}</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>技术要点</h2>
+      <div class="tech-points">
+        <div class="point">
+          <h3>🔧 User-Agent 管理</h3>
+          <p>使用 <code>ua_manager.py</code> 动态管理不同设备的 User-Agent</p>
+        </div>
+        
+        <div class="point">
+          <h3>🌐 完整请求头</h3>
+          <p>模拟真实浏览器的完整请求头信息</p>
+        </div>
+        
+        <div class="point">
+          <h3>🔄 连接管理</h3>
+          <p>使用 keep-alive 连接和适当的缓存控制</p>
+        </div>
+        
+        <div class="point">
+          <h3>🛡️ 安全特性</h3>
+          <p>包含现代浏览器的安全相关请求头</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>最佳实践</h2>
+      <ul>
+        <li>使用真实的浏览器User-Agent</li>
+        <li>添加完整的Accept头信息</li>
+        <li>包含语言和编码偏好</li>
+        <li>使用适当的连接管理</li>
+        <li>添加现代浏览器的安全特性头</li>
+      </ul>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .doc-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doc-content h1 {
+    color: #2d3748;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .doc-content h2 {
+    color: #4a5568;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .doc-content p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+  
+  .doc-content ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .doc-content li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .code-block {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-left: 4px solid #007bff;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .code-block p {
+    margin: 0;
+    padding: 0.2rem 0;
+  }
+  
+  .tech-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .point {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .point h3 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+  }
+  
+  .point p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+</style> 

@@ -1,0 +1,21 @@
+{
+  "name": "api-finder-docs",
+  "version": "1.0.0",
+  "description": "API Finder 文档网站",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^2.0.1",
+    "@astrojs/sitemap": "^3.0.3",
+    "astro": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5"
+  }
+} 
